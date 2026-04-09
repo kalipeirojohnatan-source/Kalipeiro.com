@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Think Like a Genius — Mental Models for Clear Thinking & Better Decisions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #000000;
+            --secondary-color: #FFFFFF;
+            --accent-color: #FFD700; /* A subtle gold/yellow from the image */
+            --text-color-dark: #333333;
+            --text-color-light: #FFFFFF;
+            --light-gray: #f8f8f8;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: var(--secondary-color); /* White background */
+            color: var(--text-color-dark); /* Dark text */
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Top Header for Logo and Brand Name */
+        .top-header {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            justify-content: flex-start;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .top-header .logo {
+            height: 35px;
+            width: 35px;
+            border-radius: 50%;
+            margin-right: 10px;
+            object-fit: cover;
+        }
+
+        .top-header .brand-name {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px 60px 20px;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            min-height: calc(100vh - 65px);
+            justify-content: center;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-top: 0;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.4em;
+            margin-bottom: 40px;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color); /* Reverted to gold/yellow */
+            color: var(--primary-color); /* Dark text on gold button */
+            padding: 18px 35px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: 700;
+            transition: opacity 0.3s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 20px;
+            text-align: center;
+            background-color: var(--secondary-color);
+            color: var(--text-color-dark);
+        }
+
+        section:nth-of-type(even) {
+            background-color: var(--light-gray);
+        }
+
+        h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        p {
+            font-size: 1.1em;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+            color: var(--text-color-dark);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+            text-align: left;
+        }
+
+        ul li {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        ul li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        .small-text {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--secondary-color); /* White text */
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.9em;
+        }
+
+        footer p {
+            color: var(--secondary-color); /* Ensuring white font for footer */
+            margin: 0;
+        }
+
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .hero p {
+                font-size: 1.2em;
+            }
+
+            .cta-button {
+                padding: 15px 30px;
+                font-size: 1em;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+
+            h3 {
+                font-size: 1.5em;
+            }
+
+            p, ul li {
+                font-size: 1em;
+            }
+
+            section {
+                padding: 50px 20px;
+            }
+
+            .top-header {
+                padding: 10px 20px;
+            }
+
+            .top-header .logo {
+                height: 28px;
+                width: 28px;
+            }
+
+            .top-header .brand-name {
+                font-size: 1.1em;
+            }
+
+            .hero {
+                padding-top: 0px;
+                min-height: calc(100vh - 60px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero p {
+                font-size: 1em;
+            }
+
+            .hero-image {
+                max-width: 300px;
+            }
+
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 0.9em;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            h3 {
+                font-size: 1.3em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-header">
+        <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663371080405/cNEIiyGjmQoCugGN.png" alt="Kalipeiro Logo" class="logo">
+        <span class="brand-name">Kalipeiro</span>
+    </div>
+
+    <header class="hero">
+        <div class="container hero-content">
+            <h1>Unlock Your Inner Architect of Thought.</h1>
+            <p>Master the frameworks that elite thinkers use to dissect complexity, forge clarity, and make decisions with unparalleled precision.</p>
+            <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663371080405/NYjURAoyyyDmHsit.png" alt="How to Think Like a Genius Cover" class="hero-image">
+            <a href="https://kalipeiro1.gumroad.com/l/genius" class="cta-button">Get Instant Access</a>
+        </div>
+    </header>
+
+    <section id="problem">
+        <div class="container">
+            <h2>The True Obstacle Isn't Effort. It's Your Approach to Thought.</h2>
+            <p>Most people don’t lack effort. They lack clarity.</p>
+            <p>This guide gives you the mental models to think clearly, make better decisions, and see what others miss.</p>
+        </div>
+    </section>
+
+    <section id="solution">
+        <div class="container">
+            <h2>Engineer Your Mind for Peak Performance.</h2>
+            <p>Introducing the Kalipeiro method: <strong>A practical system for thinking, decision-making, and personal leverage.</strong> This isn't about quick fixes; it's about building a robust internal framework for superior thinking.</p>
+            <ul>
+                <li><strong>Mental Models:</strong> Leverage proven frameworks to understand the world with unprecedented depth.</li>
+                <li><strong>Clarity Frameworks:</strong> Cut through noise and ambiguity to reveal the core of any problem.</li>
+                <li><strong>Decision Systems:</strong> Implement systematic approaches to make consistently optimal choices.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="benefits">
+        <div class="container">
+            <h2>Transform Your Thinking. Transform Your Life.</h2>
+            <ul>
+                <li>Think clearly and strategically, even under immense pressure.</li>
+                <li>Make better decisions faster.</li>
+                <li>Understand complex situations with ease.</li>
+                <li>Design your life with intention.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="product-details">
+        <div class="container">
+            <h2>Your Blueprint for Genius.</h2>
+            <h3>The Digital Zine: How to Think Like a Genius</h3>
+            <p>This isn't just a book; it's a practical, actionable guide in PDF format, designed for immediate application. No theoretical fluff, just potent insights and systems you can integrate into your thinking today.</p>
+            <p>Get instant access after purchase and begin your transformation.</p>
+            <p>Clear, structured, and actionable.</p>
+        </div>
+    </section>
+
+    <section id="cta-final">
+        <div class="container">
+            <h2>Ready to Redefine Your Potential?</h2>
+            <p>Launch price — limited time: <span style="text-decoration: line-through;">$19.90</span> <strong>$14.90</strong></p>
+            <p>Get instant access now</p>
+            <a href="https://kalipeiro1.gumroad.com/l/genius" class="cta-button">Buy Now</a>
+            <p class="small-text">Secure checkout • Instant access after purchase</p>
+            <p class="small-text">Launch price available for a limited time</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Already purchased? Access your product on <a href="https://gumroad.com/library">Gumroad</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>
